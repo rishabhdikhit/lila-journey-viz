@@ -2,7 +2,7 @@
 
 A web tool that turns LILA BLACK's raw parquet telemetry into a Level-Designer-friendly map view: per-match player paths, kill/death/loot markers, heatmaps, and timeline playback.
 
-**Live demo:** _add your deployment URL here after deploying_
+**Live demo:** https://lila-journey-viz.vercel.app/
 
 ---
 
