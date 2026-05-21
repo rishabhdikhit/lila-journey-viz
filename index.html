@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LILA BLACK — Player Journey Visualizer</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="logo">LILA</span>
+    <span class="title">Player Journey Visualizer</span>
+  </div>
+  <div class="brand-right">
+    <span id="summary-stats" class="stats"></span>
+  </div>
+</header>
+
+<main>
+  <aside id="sidebar">
+    <section class="control">
+      <label>Map</label>
+      <select id="filter-map"><option value="">All maps</option></select>
+    </section>
+
+    <section class="control">
+      <label>Date</label>
+      <select id="filter-date"><option value="">All dates</option></select>
+    </section>
+
+    <section class="control" id="match-control">
+      <label>
+        Match <span id="match-count" class="muted"></span>
+        <button id="view-aggregate" class="link-btn">Show all on this map</button>
+      </label>
+      <select id="match-sort">
+        <option value="events_desc">Sort: most events</option>
+        <option value="events_asc">Sort: fewest events</option>
+        <option value="humans_desc">Sort: most humans</option>
+        <option value="bots_desc">Sort: most bots</option>
+        <option value="duration_desc">Sort: longest span</option>
+        <option value="duration_asc">Sort: shortest span</option>
+        <option value="date_desc">Sort: newest date</option>
+        <option value="date_asc">Sort: oldest date</option>
+        <option value="pvp_first">Sort: PvP matches first</option>
+      </select>
+      <select id="filter-match" size="14"></select>
+      <div class="muted" id="aggregate-hint">Pick a map above to see all matches combined.</div>
+    </section>
+
+    <section class="control">
+      <label>
+        Layers
+        <button id="layers-all" class="link-btn">all</button>
+        <button id="layers-none" class="link-btn">none</button>
+      </label>
+      <div class="layers">
+        <label class="layer-item"><input type="checkbox" data-layer="Kill" checked /><span class="dot kill"></span> Kill (PvP)</label>
+        <label class="layer-item"><input type="checkbox" data-layer="Killed" checked /><span class="dot killed"></span> Killed (PvP)</label>
+        <label class="layer-item"><input type="checkbox" data-layer="BotKill" checked /><span class="dot botkill"></span> BotKill (human → bot)</label>
+        <label class="layer-item"><input type="checkbox" data-layer="BotKilled" checked /><span class="dot botkilled"></span> BotKilled (bot → human)</label>
+        <label class="layer-item"><input type="checkbox" data-layer="KilledByStorm" checked /><span class="dot storm"></span> KilledByStorm</label>
+        <label class="layer-item"><input type="checkbox" data-layer="Loot" checked /><span class="dot loot"></span> Loot</label>
+        <label class="layer-item"><input type="checkbox" data-layer="humanPath" checked /><span class="dot human-path"></span> Human path</label>
+        <label class="layer-item"><input type="checkbox" data-layer="botPath" checked /><span class="dot bot-path"></span> Bot path</label>
+      </div>
+    </section>
+
+    <section class="control">
+      <label>Heatmap</label>
+      <select id="heatmap-mode">
+        <option value="off">Off</option>
+        <option value="combat">Combat density</option>
+        <option value="loot">Loot density</option>
+        <option value="traffic">Traffic (all events)</option>
+        <option value="storm">Storm deaths</option>
+      </select>
+    </section>
+
+    <section class="control">
+      <label>Match details</label>
+      <pre id="match-details" class="details">Pick a match.</pre>
+    </section>
+  </aside>
+
+  <section id="canvas-wrap">
+    <div id="map-banner" class="banner"></div>
+    <div class="canvas-stack">
+      <canvas id="map-canvas" width="1024" height="1024"></canvas>
+      <canvas id="heat-canvas" width="1024" height="1024"></canvas>
+      <canvas id="event-canvas" width="1024" height="1024"></canvas>
+      <canvas id="hover-canvas" width="1024" height="1024"></canvas>
+    </div>
+    <div id="tooltip" class="tooltip" hidden></div>
+
+    <div id="timeline-bar">
+      <button id="play-btn">▶</button>
+      <input type="range" id="timeline" min="0" max="1000" value="1000" />
+      <span id="timeline-label" class="muted">—</span>
+      <select id="speed">
+        <option value="1">1×</option>
+        <option value="2">2×</option>
+        <option value="0.5">0.5×</option>
+        <option value="0.25">0.25×</option>
+      </select>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

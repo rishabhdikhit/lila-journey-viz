@@ -1,0 +1,56 @@
+{
+  "total_files": 1243,
+  "skipped_files": 3,
+  "total_events": 89104,
+  "total_matches": 796,
+  "events": {
+    "Position": 51347,
+    "BotPosition": 21712,
+    "Loot": 12885,
+    "BotKill": 2415,
+    "BotKilled": 700,
+    "KilledByStorm": 39,
+    "Kill": 3,
+    "Killed": 3
+  },
+  "events_per_map": {
+    "AmbroseValley": {
+      "Position": 36189,
+      "Loot": 9955,
+      "BotKilled": 486,
+      "BotKill": 1797,
+      "BotPosition": 12565,
+      "KilledByStorm": 17,
+      "Kill": 2,
+      "Killed": 2
+    },
+    "GrandRift": {
+      "Position": 3740,
+      "Loot": 880,
+      "KilledByStorm": 5,
+      "BotPosition": 1988,
+      "BotKilled": 46,
+      "BotKill": 192,
+      "Kill": 1,
+      "Killed": 1
+    },
+    "Lockdown": {
+      "Position": 11418,
+      "Loot": 2050,
+      "BotKill": 426,
+      "BotKilled": 168,
+      "BotPosition": 7159,
+      "KilledByStorm": 17
+    }
+  },
+  "matches_per_day": {
+    "February-10": 285,
+    "February-11": 201,
+    "February-12": 162,
+    "February-13": 112,
+    "February-14": 37
+  },
+  "out_of_bounds_events": 0,
+  "pvp_combat": 6,
+  "pve_combat": 3115
+}
